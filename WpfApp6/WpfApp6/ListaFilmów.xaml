@@ -1,0 +1,67 @@
+﻿<Window
+    x:Class="WpfApp6.ListaFilmów"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:WpfApp6"
+    mc:Ignorable="d"
+    
+    Title="ListaFilmów"
+    Height="600"
+    Width="500"
+    >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <ListBox
+            Name="Lista"
+            Grid.ColumnSpan="3"
+            ItemsSource="{Binding Path=Filmy}"
+            >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding SkrótSzczegółów}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button
+            Grid.ColumnSpan="2"
+            Grid.Row="1"
+            Click="Usuń"
+            >Usuń</Button>
+        <Button
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            Grid.Row="1"
+            Click="Edytuj"
+            >Edytuj</Button>
+        <Button
+            Grid.Column="4"
+            Grid.ColumnSpan="2"
+            Grid.Row="1"
+            Click="Dodaj"
+            >Dodaj</Button>
+        <Button
+            Grid.ColumnSpan="3"
+            Grid.Row="2" Click="Importuj"
+            >Import</Button>
+        <Button
+            Grid.Column="3"
+            Grid.ColumnSpan="3"
+            Grid.Row="2" Click="Eksportuj"
+            >Eksport</Button>
+    </Grid>
+</Window>
